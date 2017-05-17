@@ -39,7 +39,7 @@ public class WSBook {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response BuyWholesaler(String jsonRecevied)
 	{		
-		CustomResponse cr = new CustomResponse();
+		//CustomResponse cr = new CustomResponse();
 		JSONParser parser = new JSONParser();
 		String isbn;
 		int quantity;
@@ -53,10 +53,10 @@ public class WSBook {
 	        quantity = (int) (long) obj2.get("quantity");
 	        stock = (int) (long) obj2.get("stock");
 	    } catch(ParseException pe){
-	    	cr.setData(null);
-	    	cr.setMessage("error with json");
+	    	//cr.setData(null);
+	    	//cr.setMessage("error with json");
 	    	
-	    	return Response.status(400).entity(cr).build();			
+	    	return Response.status(400).entity("error with json").build();			
 	    }
 	
 		Client client = ClientBuilder.newClient();
@@ -69,8 +69,8 @@ public class WSBook {
 			return Response.status(r.getStatus()).entity(r.readEntity(CustomResponse.class).getMessage()).build();
 		}
 		
-		cr.setData(null);
-		cr.setMessage("wholesale order sent");
-		return Response.status(200).entity(cr).build();
+		//cr.setData(null);
+		//cr.setMessage("wholesale order sent");
+		return Response.status(200).entity("wholesale order sent").build();
 	}	
 }
