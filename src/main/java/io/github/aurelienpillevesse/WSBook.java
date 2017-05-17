@@ -39,9 +39,9 @@ public class WSBook {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response BuyWholesaler(String jsonRecevied)
 	{		
-		//CustomResponse cr = new CustomResponse();
+		CustomResponse cr = new CustomResponse();
 		JSONParser parser = new JSONParser();
-		String isbn;
+		String isbn = null;
 		int quantity;
 		int stock;
 		
@@ -53,24 +53,24 @@ public class WSBook {
 	        quantity = (int) (long) obj2.get("quantity");
 	        stock = (int) (long) obj2.get("stock");
 	    } catch(ParseException pe){
-	    	//cr.setData(null);
-	    	//cr.setMessage("error with json");
+	    	cr.setData(null);
+	    	cr.setMessage("error with json");
 	    	
-	    	return Response.status(400).entity("error with json").build();			
+	    	return Response.status(400).entity(cr).build();
 	    }
 	
 		Client client = ClientBuilder.newClient();
     	WebTarget target = client.target("https://stock-service-p2017.herokuapp.com/updatestock");
     	
-    	String input = "{\"quantity\":"+ quantity + ",\"stock\":\"" + stock + ",\"isbn\":\"" + isbn + "\"}";
-    	Response r = target.request().put(Entity.json(input));
+    	String input = "{\"quantity\":" + quantity + ",\"stock\": " + stock + ",\"isbn\":\"" + isbn + "\"}";
+    	Response r = target.request().put(Entity.json(input), Response.class);
 		
 		if(r.getStatus() == 400) {
 			return Response.status(r.getStatus()).entity(r.readEntity(CustomResponse.class).getMessage()).build();
 		}
 		
-		//cr.setData(null);
-		//cr.setMessage("wholesale order sent");
-		return Response.status(200).entity("wholesale order sent").build();
+		cr.setData(null);
+		cr.setMessage("wholesale order sent");
+		return Response.status(200).entity(cr).build();
 	}	
 }
