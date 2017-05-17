@@ -45,5 +45,6 @@
 	<classpathentry kind="lib" path="C:/Users/Aurelio/workspace/wholesealer-service-p2017/src/main/webapp/WEB-INF/lib/persistence-api-1.0.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Aurelio/workspace/wholesealer-service-p2017/src/main/webapp/WEB-INF/lib/validation-api-1.1.0.Final.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Aurelio/workspace/wholesealer-service-p2017/src/main/webapp/WEB-INF/lib/postgresql-42.1.1.jre7.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Aurelio/workspace/wholesealer-service-p2017/src/main/webapp/WEB-INF/lib/json-simple-1.1.1.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
