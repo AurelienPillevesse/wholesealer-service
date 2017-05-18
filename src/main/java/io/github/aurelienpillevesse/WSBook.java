@@ -24,8 +24,6 @@ import org.json.simple.JSONArray;
 import org.json.simple.parser.ParseException;
 import org.json.simple.parser.JSONParser;
 
-import io.github.aurelienpillevesse.dao.BookDAO;
-import io.github.aurelienpillevesse.dao.DAO;
 import io.github.aurelienpillevesse.model.Book;
 import io.github.aurelienpillevesse.model.CustomResponse;
 
